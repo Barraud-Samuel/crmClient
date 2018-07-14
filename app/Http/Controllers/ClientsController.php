@@ -53,7 +53,7 @@ class ClientsController extends Controller
     {
         $this->validate($request,[
             'clientName'=>'required',
-            'status'=>'required'
+            'status'=>'required',
         ]);
 
         //Create client
