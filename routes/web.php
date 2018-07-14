@@ -15,3 +15,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 
 Route::resource('clients','ClientsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

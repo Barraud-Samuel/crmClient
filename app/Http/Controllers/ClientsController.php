@@ -7,6 +7,17 @@ use App\Client;
 
 class ClientsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -95,6 +106,7 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $this->validate($request,[
             'clientName'=>'required',
             'status'=>'required'
