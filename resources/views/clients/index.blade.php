@@ -39,7 +39,7 @@
 
     @else
         <p>Il n'y pas encore de client</p>
-        <a class="btn btn-primary" href="/create">Créez-en un</a>
+        <a class="btn btn-primary" href="/clients/create">Créez-en un</a>
     @endif
 @endsection
 

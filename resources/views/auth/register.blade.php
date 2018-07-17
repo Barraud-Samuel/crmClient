@@ -40,6 +40,25 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="team" class="col-md-4 col-form-label text-md-right">{{ __('Votre Team') }}</label>
+
+                            <div class="col-md-6">
+                                {{--<input id="team" type="text" class="form-control{{ $errors->has('team') ? ' is-invalid' : '' }}" name="team" value="{{ old('team') }}" required>--}}
+                                <select name="team" id="team" class="form-control {{$errors->has('team') ? ' is-invalid' : ''}}" value="{{ old('team') }}" required>
+                                    <option value="crea">Créa</option>
+                                    <option value="dev">Dev</option>
+                                    <option value="market">Market</option>
+                                </select>
+
+                                @if ($errors->has('team'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('team') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

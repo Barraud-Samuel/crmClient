@@ -3,13 +3,16 @@
     <h2 class="text-center">profil</h2>
     <div class="card">
         <div class="card-header">
-            <p>
+            <h3>
                 {{Auth::user()->name}}
-            </p>
+            </h3>
         </div>
         <div class="card-body">
             <p>
-                {{Auth::user()->email}}
+               Mail : {{Auth::user()->email}}
+            </p>
+            <p>
+                Team : {{Auth::user()->team}}
             </p>
         </div>
     </div>
