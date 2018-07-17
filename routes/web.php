@@ -14,6 +14,8 @@
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 
+Route::get('/profil', 'PagesController@profil');
+
 Route::resource('clients','ClientsController');
 
 Auth::routes();

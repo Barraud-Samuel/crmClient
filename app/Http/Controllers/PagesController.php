@@ -24,4 +24,8 @@ class PagesController extends Controller
     public function about(){
         return view('pages.about');
     }
+
+    public function profil(){
+        return view('pages.profil');
+    }
 }

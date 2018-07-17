@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 13 juil. 2018 à 17:54
+-- Généré le :  mar. 17 juil. 2018 à 10:24
 -- Version du serveur :  10.1.31-MariaDB
 -- Version de PHP :  7.2.4
 
@@ -30,26 +30,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `clients` (
   `id` int(10) UNSIGNED NOT NULL,
-  `clientName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `clientMail` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `priority` int(11) NOT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `urlSite` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `numberParticipants` int(11) NOT NULL,
-  `clientComments` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `loginAdmin` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `passwordAdmin` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `clientName` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `clientMail` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `urlSite` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `numberParticipants` int(11) DEFAULT NULL,
+  `clientComments` text COLLATE utf8mb4_unicode_ci,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `loginAdmin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `passwordAdmin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `clients`
---
-
-INSERT INTO `clients` (`id`, `clientName`, `clientMail`, `priority`, `status`, `urlSite`, `numberParticipants`, `clientComments`, `country`, `loginAdmin`, `passwordAdmin`, `created_at`, `updated_at`) VALUES
-(1, 'client 1', 'client1.mail@mail.com', 3, 'en cours', 'www.pronogoal.entreprise.fr', 130, 'bla bla bla', 'Fr', 'root', 'root', '2018-07-13 13:17:00', '2018-07-13 13:17:00');
 
 -- --------------------------------------------------------
 
@@ -62,15 +55,6 @@ CREATE TABLE `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2018_07_13_145633_create_clients_table', 1);
 
 -- --------------------------------------------------------
 
@@ -149,7 +133,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
