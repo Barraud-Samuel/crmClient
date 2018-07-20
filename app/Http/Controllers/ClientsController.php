@@ -29,6 +29,7 @@ class ClientsController extends Controller
         //$clients = Client::orderBY('created_at','asc')->get();
         //pagination
         $clients = Client::orderBy('created_at', 'desc')->paginate(10);
+        $clientUser =
         //$clients = Client::all();
         return view('clients.index')->with('clients',$clients);
     }
