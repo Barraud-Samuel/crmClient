@@ -30,10 +30,9 @@ class ClientsController extends Controller
         //$clients = Client::orderBY('created_at','asc')->get();
         //pagination
         $clients = Client::orderBy('created_at', 'desc')->paginate(10);
-        $clientUsers = ClientUser::orderBy('clientUser_rank','asc')->get();
         //return $clientUser;
         //$clients = Client::all();
-        return view('clients.index')->with('clients',$clients)->with('clientUsers',$clientUsers);
+        return view('clients.index')->with('clients',$clients);
     }
 
     /**
@@ -85,7 +84,9 @@ class ClientsController extends Controller
     public function show($id)
     {
         $client = Client::find($id);
-        return view('clients.details')->with('client', $client);
+        //$clientUsers = ClientUser::orderBy('clientUser_rank','asc')->get();
+        $clientUsers = ClientUser::where('clientId',$id)->orderBy('clientUser_rank','asc')->get();
+        return view('clients.details')->with('client', $client)->with('clientUsers', $clientUsers);
     }
 
     /**

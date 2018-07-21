@@ -32,36 +32,6 @@
                 <td><a target="_blank" href="https://www.google.fr/">{{$client->urlSite}}</a></td>
                 <td>{{$client->numberParticipants}}</td>
             </tr>
-                {{--START CLIENT USER--}}
-                @if(count($clientUsers)>0)
-                    <tr>
-                        <td colspan="7">
-                             <table class="clientUsers-list table table-dark">
-                                <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Classement</th>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">Mail</th>
-                                    <th scope="col">team</th>
-                                </tr>
-                                </thead>
-                                <tbody class="thead-dark">
-                                @foreach($clientUsers as $clientUser)
-                                    @if($indexkey+1 === $clientUser->clientId)
-                                        <tr>
-                                            <th>{{$clientUser->clientUser_rank}}</th>
-                                            <th>{{$clientUser->clientUser_Name}}</th>
-                                            <th>{{$clientUser->clientUser_email}}</th>
-                                            <th>{{$clientUser->clientUser_team}}</th>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                @endif
-                {{--END CLIENT USER--}}
             @endforeach
             </tbody>
             {{$clients->links()}}
@@ -72,4 +42,3 @@
         <a class="btn btn-primary" href="/clients/create">Créez-en un</a>
     @endif
 @endsection
-
