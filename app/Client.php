@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
 
-    //  USELESS
+    //  config
+    //nom de la base
+    protected $connection = 'mysql';
     //table name
     protected $table = 'clients';
     //primary ley

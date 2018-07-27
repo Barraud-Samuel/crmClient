@@ -54,6 +54,22 @@ return [
             'engine' => null,
         ],
 
+        //TODO http://fideloper.com/laravel-multiple-database-connections
+        //TODO https://stackoverflow.com/questions/31847054/how-to-use-multiple-database-in-laravel
+        //TODO https://medium.com/teknomuslim/how-to-run-laravel-using-multiple-database-connections-d7e8dcb7ed2a
+
+        //second database
+        'mysql2' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_API', '127.0.0.1'),
+            'port' => env('DB_PORT_API', '3306'),
+            'database' => env('DB_DATABASE_API', 'forge'),
+            'username' => env('DB_USERNAME_API', 'forge'),
+            'password' => env('DB_PASSWORD_API', ''),
+            'charset' => 'utf8mb4',
+            'prefix' => '',
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
