@@ -15,6 +15,7 @@
                 <a class="nav-item nav-link btn-light btn text-primary" href="/clients/create">Ajouter un client</a>
                 <a class="nav-item nav-link" href="/about">About</a>
                 <a class="nav-item nav-link" href="/clients">dashboard</a>
+                <a class="nav-item nav-link" href="/matchs">matchs</a>
             </ul>
 
             <!-- Right Side Of Navbar -->

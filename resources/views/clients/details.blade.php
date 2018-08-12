@@ -46,7 +46,7 @@
     </div>
 
 
-
+    <p class="text-center m-lg-5"><a href="/operation/create" class="btn-dark btn text-center">Creer une operation pour ce client</a></p>
 
 
     {{--START CLIENT USER--}}
