@@ -18,6 +18,8 @@ Route::get('/profil', 'PagesController@profil');
 
 Route::resource('clients','ClientsController');
 
+Route::resource('operations','OperationsController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

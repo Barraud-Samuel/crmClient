@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Client;
 use App\ClientUser;
+use App\Operation;
 
 class ClientsController extends Controller
 {
@@ -86,7 +87,11 @@ class ClientsController extends Controller
         $client = Client::find($id);
         //$clientUsers = ClientUser::orderBy('clientUser_rank','asc')->get();
         $clientUsers = ClientUser::where('clientId',$id)->orderBy('clientUser_rank','asc')->get();
-        return view('clients.details')->with('client', $client)->with('clientUsers', $clientUsers);
+        $clientOperations = Operation::where('client_id', $id)->orderBy('created_at','desc')->get();
+
+        return view('clients.details')->with('client', $client)->with('clientUsers', $clientUsers)->with('clientOperations', $clientOperations);
+
+
     }
 
     /**

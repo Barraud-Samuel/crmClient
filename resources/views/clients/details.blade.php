@@ -46,7 +46,10 @@
     </div>
 
 
-    <p class="text-center m-lg-5"><a href="/operation/create" class="btn-dark btn text-center">Creer une operation pour ce client</a></p>
+    <p class="text-center m-lg-5"><a href="/operations/create" class="btn-dark btn text-center">Creer une operation pour ce client</a></p>
+    @foreach($clientOperations as $clientOperation)
+        <p>{{$clientOperation->url}}</p>
+    @endforeach
 
 
     {{--START CLIENT USER--}}
