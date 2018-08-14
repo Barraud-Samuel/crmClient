@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Operation;
+use App\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class OperationsController extends Controller
 {
@@ -95,7 +97,10 @@ class OperationsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $operation = Operation::find($id);
+        $client = Client::pluck('clientName','id');
+        //return $client;
+        return view('operations.edit')->with('operation',$operation)->with('client',$client);
     }
 
     /**
