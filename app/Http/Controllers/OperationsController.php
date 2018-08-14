@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Operation;
 use Illuminate\Http\Request;
 
 class OperationsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +33,19 @@ class OperationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function CLcreate($id)
+    {
+        return view('operations.CLcreate')->with('clientId',$id);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        //
+        return view('operations.create');
     }
 
     /**
@@ -34,7 +56,24 @@ class OperationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'client_id'=>'required',
+            'status'=>'required'
+        ]);
+
+        //enregistration de l'opetration en bdd
+        $operation = new Operation;
+        $operation->client_id = $request->input('client_id');
+        $operation->url = $request->input('url');
+        $operation->lang = $request->input('lang');
+        $operation->numberParticipants = $request->input('numberParticipants');
+        $operation->status = $request->input('status');
+        $operation->loginAdmin = $request->input('loginAdmin');
+        $operation->passwordAdmin = $request->input('passwordAdmin');
+        $operation->save();
+
+        return redirect('/clients/');
+
     }
 
     /**

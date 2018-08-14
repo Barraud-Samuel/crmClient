@@ -16,12 +16,12 @@ class CreateOperationsTable extends Migration
         Schema::create('operations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('client_id');
-            $table->string('url');
-            $table->string('lang');
-            $table->integer('numberParticipants');
-            $table->string('status');
-            $table->string('loginAdmin');
-            $table->string('passwordAdmin');
+            $table->string('url')->nullable();
+            $table->string('lang')->nullable();
+            $table->integer('numberParticipants')->nullable();
+            $table->string('status')->nullable();
+            $table->string('loginAdmin')->nullable();
+            $table->string('passwordAdmin')->nullable();
             $table->timestamps();
         });
     }
