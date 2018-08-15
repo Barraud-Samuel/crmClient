@@ -12,10 +12,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <a class="nav-item nav-link btn-light btn text-primary" href="/clients/create">Ajouter un client</a>
-                <a class="nav-item nav-link" href="/about">About</a>
-                <a class="nav-item nav-link" href="/clients">dashboard</a>
+                <a class="nav-item nav-link" href="/clients/create">Ajouter un client</a>
+                <a class="nav-item nav-link" href="/operations/create">Ajouter une opération</a>
+                <a class="nav-item nav-link" href="/clients">clients</a>
+                <a class="nav-item nav-link" href="/operations">operations</a>
                 <a class="nav-item nav-link" href="/matchs">matchs</a>
+                <a class="nav-item nav-link" href="/about">About</a>
             </ul>
 
             <!-- Right Side Of Navbar -->
