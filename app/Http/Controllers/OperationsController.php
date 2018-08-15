@@ -28,6 +28,9 @@ class OperationsController extends Controller
     public function index()
     {
         //
+        $operations = Operation::orderBy('created_at', 'desc')->paginate(10);
+        $clients = Client::all();
+        return view('operations.index')->with('operations',$operations)->with('clients',$clients);
     }
 
     /**
@@ -119,7 +122,7 @@ class OperationsController extends Controller
         ]);
 
         //enregistration de l'opetration en bdd
-        $operation = new Operation;
+        $operation = Operation::find($id);
         $operation->client_id = $request->input('client_id');
         $operation->url = $request->input('url');
         $operation->lang = $request->input('lang');
