@@ -55,22 +55,14 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'clientName'=>'required',
-            'status'=>'required',
+            'clientName'=>'required'
         ]);
 
         //Create client
         $client = new Client;
         $client->clientName = $request->input('clientName');
         $client->clientMail = $request->input('clientMail');
-        $client->priority = $request->input('priority');
-        $client->status = $request->input('status');
-        $client->urlSite = $request->input('urlSite');
-        $client->numberParticipants = $request->input('numberParticipants');
         $client->clientComments = $request->input('clientComments');
-        $client->country = $request->input('country');
-        $client->loginAdmin = $request->input('loginAdmin');
-        $client->passwordAdmin = $request->input('passwordAdmin');
         $client->save();
 
         return redirect('/clients')->with('success', 'Le client à bien été créée');
@@ -117,22 +109,13 @@ class ClientsController extends Controller
     {
 
         $this->validate($request,[
-            'clientName'=>'required',
-            'status'=>'required'
+            'clientName'=>'required'
         ]);
 
-        //Create client
         $client = Client::find($id);
         $client->clientName = $request->input('clientName');
         $client->clientMail = $request->input('clientMail');
-        $client->priority = $request->input('priority');
-        $client->status = $request->input('status');
-        $client->urlSite = $request->input('urlSite');
-        $client->numberParticipants = $request->input('numberParticipants');
         $client->clientComments = $request->input('clientComments');
-        $client->country = $request->input('country');
-        $client->loginAdmin = $request->input('loginAdmin');
-        $client->passwordAdmin = $request->input('passwordAdmin');
         $client->save();
 
         return redirect('/clients')->with('success', 'Le client à bien été modifié');

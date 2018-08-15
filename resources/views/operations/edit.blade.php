@@ -3,12 +3,12 @@
 @section('content')
     <h1 class="text-center">Modifier cette operation</h1>
     <div class="formcreate container">
-        {!! Form::open(['action' => 'OperationsController@store', 'method'=>'POST', 'class'=>'needs-validations'])!!}
+        {!! Form::open(['action' => ['OperationsController@update', $operation->id ],'method'=>'POST', 'class'=>'needs-validations'])!!}
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    {{Form::label('clientName','Nom du client')}}
-                    {{Form::select('status',$client,$operation->client_id,['class'=>'form-control'])}}
+                    {{Form::label('client_id','Nom du client')}}
+                    {{Form::select('client_id',$client,$operation->client_id,['class'=>'form-control'])}}
                 </div>
                 <div class="form-group">
                     {{Form::label('url','Url de l\'operation')}}
@@ -38,7 +38,8 @@
                 </div>
             </div>
         </div>
-        {{Form::submit('Ajouter',['class'=>'btn btn-primary btn-block'])}}
+        {!! Form::hidden('_method','PUT') !!}
+        {{Form::submit('modifier',['class'=>'btn btn-primary btn-block'])}}
         {!! Form::close() !!}
     </div>
 @endsection

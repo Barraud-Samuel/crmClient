@@ -47,7 +47,8 @@ class OperationsController extends Controller
      */
     public function create()
     {
-        return view('operations.create');
+        $client = Client::pluck('clientName','id');
+        return view('operations.create')->with('client',$client);
     }
 
     /**
@@ -74,7 +75,7 @@ class OperationsController extends Controller
         $operation->passwordAdmin = $request->input('passwordAdmin');
         $operation->save();
 
-        return redirect('/clients/');
+        return redirect('/clients/'.$operation->client_id);
 
     }
 
@@ -112,7 +113,23 @@ class OperationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'client_id'=>'required',
+            'status'=>'required'
+        ]);
+
+        //enregistration de l'opetration en bdd
+        $operation = new Operation;
+        $operation->client_id = $request->input('client_id');
+        $operation->url = $request->input('url');
+        $operation->lang = $request->input('lang');
+        $operation->numberParticipants = $request->input('numberParticipant');
+        $operation->status = $request->input('status');
+        $operation->loginAdmin = $request->input('loginAdmin');
+        $operation->passwordAdmin = $request->input('passwordAdmin');
+        $operation->save();
+
+        return redirect('/clients/'.$operation->client_id);
     }
 
     /**
@@ -123,6 +140,8 @@ class OperationsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $operation = Operation::find($id);
+        $operation->delete();
+        return redirect('/clients/'.$operation->client_id)->with('success','Client supprimé ');
     }
 }

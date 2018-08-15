@@ -17,14 +17,7 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('clientName')->nullable();
             $table->string('clientMail')->nullable();
-            $table->integer('priority')->nullable();
-            $table->string('status')->nullable();
-            $table->string('urlSite')->nullable();
-            $table->integer('numberParticipants')->nullable();
             $table->text('clientComments')->nullable();
-            $table->string('country')->nullable();
-            $table->string('loginAdmin')->nullable();
-            $table->string('passwordAdmin')->nullable();
             $table->timestamps();
         });
     }

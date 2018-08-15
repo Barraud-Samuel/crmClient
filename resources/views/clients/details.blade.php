@@ -6,24 +6,13 @@
     <div class="card client-detail">
         <div class="card-header text-center">
             <div class="row">
-                <div class="col-4 justify-content-center align-self-center">
-                    <span class="{{($client->status == 'En cours')?'badge-success badge' : (($client->status == 'Terminé')?'badge-secondary badge':'badge badge-warning')}}" {{$client->status}}>{{$client->status}}</span>
-                </div>
-                <div class="col-4">
+                <div class="col-12">
                     <h3 class="text-uppercase">{{$client->clientName}}</h3>
                     <small>{{$client->clientMail}}</small>
-                </div>
-                <div class="col-4 justify-content-center align-self-center">
-                    <span class="badge badge-danger">priorité : {{$client->priority}}</span>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <h5 class="card-text mt-3">Langue du site : {{$client->country}}</h5>
-            <h5 class="card-text mt-3">Acceder au site : <a target="_blank" href="https://www.google.fr/"><u>{{$client->urlSite}}</u></a></h5>
-            <h5 class="card-text mt-3">Nbs de participants : {{$client->numberParticipants}}</h5>
-            <h5 class="card-text mt-3">Login d'admin : {{$client->loginAdmin}}</h5>
-            <h5 class="card-text mt-3">Mot de passe d'admin : {{$client->passwordAdmin}}</h5>
             <h5 class="card-text mt-3">Commentaire : {!! $client->clientComments !!}</h5>
             <hr>
             <small>Client créé le : {{$client->created_at}}</small>
@@ -70,8 +59,13 @@
                         <th><span class="{{($clientOperation->status == 'En cours')?'badge-success badge' : (($clientOperation->status == 'Terminé')?'badge-secondary badge':'badge badge-warning')}}">{{$clientOperation->status}}</span></th>
                         <th>{{$clientOperation->loginAdmin}}</th>
                         <th>{{$clientOperation->passwordAdmin}}</th>
-                        <th><a href="/operations/{{$clientOperation->id}}/edit"><i class="far fa-edit"></i></a></th>
-                        <th><a href=""><i class="far fa-trash-alt"></i></a></th>
+                        <th><a class="btn btn-success" href="/operations/{{$clientOperation->id}}/edit"><i class="far fa-edit"></i></a></th>
+                        <th>
+                            {!! Form::open(['action'=>['OperationsController@destroy', $clientOperation->id],'method'=>'POST']) !!}
+                            {{Form::hidden('_method','DELETE')}}
+                            {{Form::button('<i class="far fa-trash-alt"></i>',['type'=>'submit','class'=>'btn btn-danger'])}}
+                            {!! Form::close() !!}
+                        </th>
                     </tr>
                 @endforeach
                 </tbody>

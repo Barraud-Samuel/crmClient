@@ -15,10 +15,7 @@
                 <th scope="col"># {{$clients->count()}}</th>
                 <th scope="col">Client</th>
                 <th scope="col">Mail</th>
-                <th scope="col">Priorité</th>
-                <th scope="col">Status</th>
-                <th scope="col">Url</th>
-                <th scope="col">Nombre de participants</th>
+                <th scope="col">Nombre d'opérations</th>
             </tr>
             </thead>
             <tbody class="table-striped">
@@ -27,10 +24,7 @@
                 <th scope="row">{{$indexkey + 1}}</th>
                 <td><a href="/clients/{{$client->id}}">{{$client->clientName}}</a></td>
                 <td>{{$client->clientMail}}</td>
-                <td>{{$client->priority}}</td>
-                <td><span class="{{($client->status == 'En cours')?'badge-success badge' : (($client->status == 'Terminé')?'badge-secondary badge':'badge badge-warning')}}" {{$client->status}}>{{$client->status}}</span></td>
-                <td><a target="_blank" href="https://www.google.fr/">{{$client->urlSite}}</a></td>
-                <td>{{$client->numberParticipants}}</td>
+                <td>nb operations</td>
             </tr>
             @endforeach
             </tbody>
