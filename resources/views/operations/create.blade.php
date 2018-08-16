@@ -15,13 +15,18 @@
                     {{Form::text('url','',['class'=>'form-control','placeholder'=>'Url de l\'operation'])}}
                 </div>
                 <div class="form-group">
-                    {{Form::label('lang','Langue de l\'operation')}}
-                    {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],null,['class'=>'form-control custom-select'])}}
-                </div>
-                <div class="form-group">
                     {{Form::label('numberParticipant','Nombre de participants')}}
                     {{Form::number('numberParticipant','',['class'=>'form-control','placeholder'=>'Nombre de participants'])}}
                 </div>
+                <div class="form-group">
+                    {{Form::label('lang','Langue de l\'operation')}}
+                    {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],null,['class'=>'form-control custom-select'])}}
+                </div>
+                <div class="form-group collapse" id="langCollapse">
+                    {{Form::label('lang','2eme Langue de l\'operation')}}
+                    {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],null,['class'=>'form-control custom-select'])}}
+                </div>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#langCollapse">ajouter une langue</button>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
@@ -38,7 +43,7 @@
                 </div>
             </div>
         </div>
-        {{Form::submit('Ajouter',['class'=>'btn btn-primary btn-block'])}}
+        {{Form::submit('Ajouter',['class'=>'btn btn-primary btn-block mt-4'])}}
         {!! Form::close() !!}
     </div>
 @endsection
