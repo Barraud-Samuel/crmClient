@@ -28,8 +28,8 @@
                 <tr>
                     <th scope="row">{{$indexkey + 1}}</th>
                     <th>
-                        @foreach($clients as $key => $client)
-                            @if($key+1 === $operation->client_id)
+                        @foreach($clients as $client)
+                            @if($operation->client_id === $client->id)
                             <a href="/clients/{{$operation->client_id}}">{{$client->clientName}}</a>
                             @endif
                         @endforeach
