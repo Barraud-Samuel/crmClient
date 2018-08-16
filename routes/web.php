@@ -16,6 +16,8 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/profil', 'PagesController@profil');
 
+Route::get('/dashboard', 'PagesController@dashboard');
+
 Route::get('/operations/{id}/create','OperationsController@CLcreate');
 
 Route::resource('clients','ClientsController');

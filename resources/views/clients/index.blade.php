@@ -32,7 +32,6 @@
         </table>
 
     @else
-        <p>Il n'y pas encore de client</p>
-        <a class="btn btn-primary" href="/clients/create">Créez-en un</a>
+        <p class="text-center mt-5">Il n'y pas encore de client 😢</p>
     @endif
 @endsection

@@ -28,4 +28,8 @@ class PagesController extends Controller
     public function profil(){
         return view('pages.profil');
     }
+
+    public function dashboard(){
+        return view('pages.dashboard');
+    }
 }

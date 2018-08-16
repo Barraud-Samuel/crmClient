@@ -18,6 +18,7 @@
                 <a class="nav-item nav-link" href="/operations">operations</a>
                 <a class="nav-item nav-link" href="/matchs">matchs</a>
                 <a class="nav-item nav-link" href="/about">About</a>
+                <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
             </ul>
 
             <!-- Right Side Of Navbar -->

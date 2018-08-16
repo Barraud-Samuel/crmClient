@@ -34,6 +34,7 @@
     {{--START OPERATION LIST--}}
     <div class="clientOperation mt-5">
         <h2 class="text-center">Opérations du client</h2>
+        <p class="text-center">En cliquant sur une operation, vous avez acces aux inscris</p>
         @if(count($clientOperations)>0)
             <table class="table-striped table mt-3">
                 <thead class="thead-dark">
@@ -52,7 +53,7 @@
                 <tbody>
                 @foreach($clientOperations as $clientOperation)
                     <tr>
-                        <th>{{$client->clientName}}</th>
+                        <th><button class="btn btn-link" data-toggle="collapse" data-target="#a{{$clientOperation->id}}" aria-expanded="true" aria-controls="collapseOne">{{$client->clientName}}</button></th>
                         <th>{{$clientOperation->url}}</th>
                         <th>{{$clientOperation->lang}}</th>
                         <th>{{$clientOperation->numberParticipants}}</th>
@@ -65,6 +66,36 @@
                             {{Form::hidden('_method','DELETE')}}
                             {{Form::button('<i class="far fa-trash-alt"></i>',['type'=>'submit','class'=>'btn btn-danger'])}}
                             {!! Form::close() !!}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="9">
+                            <div id="a{{$clientOperation->id}}" class="collapse">
+                                @if(count($clientUsers)>0)
+                                    <table class="clientUsers-list table-striped table table-dark">
+                                        <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Classement</th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">Mail</th>
+                                            <th scope="col">team</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($clientUsers as $clientUser)
+                                            <tr>
+                                                <th>{{$clientUser->clientUser_rank}}</th>
+                                                <th>{{$clientUser->clientUser_Name}}</th>
+                                                <th>{{$clientUser->clientUser_email}}</th>
+                                                <th>{{$clientUser->clientUser_team}}</th>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <p class="text-center">il n'y a pas encore d'utilisateur pour ce client 😢</p>
+                                @endif
+                            </div>
                         </th>
                     </tr>
                 @endforeach

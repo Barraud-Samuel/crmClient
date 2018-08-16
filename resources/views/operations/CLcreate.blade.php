@@ -7,7 +7,11 @@
         <div class="row">
             <div class="col-12 col-md-6">
                {{-- hidden form for the client name--}}
+                <div class="form-group">
+                    {{Form::label('client_id','Nom du client')}}
+                    {{Form::select('client_id',$client,$clientId,['class'=>'form-control','placeholder'=>'nom du client','disabled'])}}
                     {{Form::text('client_id',$value = $clientId,['class'=>'form-control','placeholder'=>'nom du client','hidden'])}}
+                </div>
                 <div class="form-group">
                     {{Form::label('url','Url de l\'operation')}}
                     {{Form::text('url','',['class'=>'form-control','placeholder'=>'Url de l\'operation'])}}

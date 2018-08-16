@@ -40,7 +40,8 @@ class OperationsController extends Controller
      */
     public function CLcreate($id)
     {
-        return view('operations.CLcreate')->with('clientId',$id);
+        $client = Client::pluck('clientName','id');
+        return view('operations.CLcreate')->with('clientId',$id)->with('client',$client);
     }
 
     /**
@@ -72,7 +73,7 @@ class OperationsController extends Controller
         $operation->client_id = $request->input('client_id');
         $operation->url = $request->input('url');
         $operation->lang = $request->input('lang');
-        $operation->numberParticipants = $request->input('numberParticipants');
+        $operation->numberParticipants = $request->input('numberParticipant');
         $operation->status = $request->input('status');
         $operation->loginAdmin = $request->input('loginAdmin');
         $operation->passwordAdmin = $request->input('passwordAdmin');
