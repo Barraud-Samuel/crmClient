@@ -31,9 +31,9 @@
                         @foreach($clients as $key => $client)
                             <p>{{$client->clientName}}</p>
                             <p>{{$operation->client_id}}</p>
-                           {{-- @if($key+1 === $operation->client_id)
+                            @if($key+1 === $operation->client_id)
                             <a href="/clients/{{$operation->client_id}}">{{$client->clientName}}</a>
-                            @endif--}}
+                            @endif
                         @endforeach
                     </th>
                     <td><a href="">{{$operation->url}}</a></td>
