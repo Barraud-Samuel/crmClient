@@ -15,13 +15,18 @@
                     {{Form::text('url',$operation->url,['class'=>'form-control','placeholder'=>'Url de l\'operation'])}}
                 </div>
                 <div class="form-group">
-                    {{Form::label('lang','Langue de l\'operation')}}
-                    {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],$operation->lang,['class'=>'form-control custom-select'])}}
-                </div>
-                <div class="form-group">
                     {{Form::label('numberParticipant','Nombre de participants')}}
                     {{Form::number('numberParticipant',$operation->numberParticipants,['class'=>'form-control','placeholder'=>'Nombre de participants'])}}
                 </div>
+                <div class="form-group">
+                    {{Form::label('lang','Langue de l\'operation')}}
+                    {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],$operation->lang,['class'=>'form-control custom-select'])}}
+                </div>
+                <div class="form-group collapse" id="langCollapse">
+                    {{Form::label('langSecond','2eme Langue de l\'operation')}}
+                    {{Form::select('langSecond',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],$operation->langSecond,['class'=>'form-control custom-select'])}}
+                </div>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#langCollapse">modifier la seconde langue</button>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
@@ -39,7 +44,7 @@
             </div>
         </div>
         {!! Form::hidden('_method','PUT') !!}
-        {{Form::submit('modifier',['class'=>'btn btn-primary btn-block'])}}
+        {{Form::submit('modifier',['class'=>'btn btn-primary btn-block mt-4'])}}
         {!! Form::close() !!}
     </div>
 @endsection

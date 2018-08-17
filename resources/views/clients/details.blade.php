@@ -55,7 +55,10 @@
                     <tr>
                         <th><button class="btn btn-link" data-toggle="collapse" data-target="#a{{$clientOperation->id}}" aria-expanded="true" aria-controls="collapseOne">{{$client->clientName}}</button></th>
                         <th>{{$clientOperation->url}}</th>
-                        <th>{{$clientOperation->lang}}</th>
+                        <th>
+                            {{$clientOperation->lang}}<br>
+                            {{$clientOperation->langSecond}}
+                        </th>
                         <th>{{$clientOperation->numberParticipants}}</th>
                         <th><span class="{{($clientOperation->status == 'En cours')?'badge-success badge' : (($clientOperation->status == 'Terminé')?'badge-secondary badge':'badge badge-warning')}}">{{$clientOperation->status}}</span></th>
                         <th>{{$clientOperation->loginAdmin}}</th>

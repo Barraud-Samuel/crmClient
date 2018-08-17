@@ -21,6 +21,7 @@
                 <th scope="col">Login de l'admin</th>
                 <th scope="col">Mdp de l'admin</th>
                 <th scope="col">Nombre d'opérations</th>
+                <th></th>
             </tr>
             </thead>
             <tbody class="table-striped">
@@ -41,6 +42,12 @@
                     <td>{{$operation->loginAdmin}}</td>
                     <td>{{$operation->passwordAdmin}}</td>
                     <td>nb operations</td>
+                    <td>
+                        {!! Form::open(['action'=>['OperationsController@destroy', $operation->id],'method'=>'POST']) !!}
+                        {{Form::hidden('_method','DELETE')}}
+                        {{Form::button('<i class="far fa-trash-alt"></i>',['type'=>'submit','class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}
+                    </td>
                 </tr>
             @endforeach
             </tbody>

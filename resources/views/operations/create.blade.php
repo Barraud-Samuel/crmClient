@@ -23,8 +23,8 @@
                     {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],null,['class'=>'form-control custom-select'])}}
                 </div>
                 <div class="form-group collapse" id="langCollapse">
-                    {{Form::label('lang','2eme Langue de l\'operation')}}
-                    {{Form::select('lang',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],null,['class'=>'form-control custom-select'])}}
+                    {{Form::label('langSecond','2eme Langue de l\'operation')}}
+                    {{Form::select('langSecond',['france'=>'Française','spain'=>'Espagnole','deutsche'=>'Allemande','english'=>'Anglaise'],null,['class'=>'form-control custom-select'])}}
                 </div>
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#langCollapse">ajouter une langue</button>
             </div>

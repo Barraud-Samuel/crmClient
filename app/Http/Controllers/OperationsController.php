@@ -73,6 +73,7 @@ class OperationsController extends Controller
         $operation->client_id = $request->input('client_id');
         $operation->url = $request->input('url');
         $operation->lang = $request->input('lang');
+        $operation->langSecond = $request->input('langSecond');
         $operation->numberParticipants = $request->input('numberParticipant');
         $operation->status = $request->input('status');
         $operation->loginAdmin = $request->input('loginAdmin');
@@ -127,6 +128,7 @@ class OperationsController extends Controller
         $operation->client_id = $request->input('client_id');
         $operation->url = $request->input('url');
         $operation->lang = $request->input('lang');
+        $operation->langSecond = $request->input('langSecond');
         $operation->numberParticipants = $request->input('numberParticipant');
         $operation->status = $request->input('status');
         $operation->loginAdmin = $request->input('loginAdmin');
@@ -146,6 +148,6 @@ class OperationsController extends Controller
     {
         $operation = Operation::find($id);
         $operation->delete();
-        return redirect('/clients/'.$operation->client_id)->with('success','Client supprimé ');
+        return redirect(url()->previous())->with('success','Operation supprimé ');
     }
 }
